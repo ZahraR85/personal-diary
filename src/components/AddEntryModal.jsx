@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddEntryModal = () => {
-  // State hooks for input fields
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [content, setContent] = useState('');
-
-  // Validation and submission logic
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!title || !date || !imageUrl || !content) {
       alert('Please fill in all fields before submitting');
       return;
     }
-
-    // Create new diary entry object
     const newEntry = {
       id: Date.now(),
       title,
@@ -24,18 +20,11 @@ const AddEntryModal = () => {
       imageUrl,
       content,
     };
-
-    // Get existing entries from localStorage
     const existingEntries = JSON.parse(localStorage.getItem('entries')) || [];
-
-    // Add the new entry to the array and store in localStorage
     const updatedEntries = [...existingEntries, newEntry];
     localStorage.setItem('entries', JSON.stringify(updatedEntries));
-
-    // Redirect to homepage after submission
-    window.location.href = '/';
+    navigate('/');
   };
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold">Add New Entry</h1>
@@ -73,5 +62,4 @@ const AddEntryModal = () => {
     </div>
   );
 };
-
 export default AddEntryModal;
