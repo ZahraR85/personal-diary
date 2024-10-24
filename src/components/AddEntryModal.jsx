@@ -1,16 +1,22 @@
-// AddEntryModal.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const AddEntryModal = () => {
+  // State hooks for input fields
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [content, setContent] = useState('');
 
+  // Validation and submission logic
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create a new diary entry
+    if (!title || !date || !imageUrl || !content) {
+      alert('Please fill in all fields before submitting');
+      return;
+    }
+
+    // Create new diary entry object
     const newEntry = {
       id: Date.now(),
       title,
@@ -22,11 +28,11 @@ const AddEntryModal = () => {
     // Get existing entries from localStorage
     const existingEntries = JSON.parse(localStorage.getItem('entries')) || [];
 
-    // Add the new entry to the array and store it in localStorage
+    // Add the new entry to the array and store in localStorage
     const updatedEntries = [...existingEntries, newEntry];
     localStorage.setItem('entries', JSON.stringify(updatedEntries));
 
-    // Redirect to the homepage after form submission
+    // Redirect to homepage after submission
     window.location.href = '/';
   };
 
