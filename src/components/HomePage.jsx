@@ -1,32 +1,46 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 const HomePage = () => {
   const [entries, setEntries] = useState([]);
-
   useEffect(() => {
     const savedEntries = JSON.parse(localStorage.getItem('entries')) || [];
-    setEntries(savedEntries);
+    // Sort the entries by date (newest first)
+    const sortedEntries = savedEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+    setEntries(sortedEntries);
   }, []);
-
+  const handleDelete = (id) => {
+    const confirmed = window.confirm('Are you sure you want to delete this entry?');
+    if (confirmed) {
+      // Filter out the deleted entry
+      const updatedEntries = entries.filter((entry) => entry.id !== id);
+      // Sort the updated entries after deletion
+      const sortedUpdatedEntries = updatedEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+      setEntries(sortedUpdatedEntries);
+      localStorage.setItem('entries', JSON.stringify(sortedUpdatedEntries));
+    }
+  };
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold">Personal Diary</h1>
       <Link to="/add-entry">
-        <button className="bg-purple-500 text-white p-2 mt-4 rounded">Add Entry</button>
+        <button className="bg-pink-400 text-white py-2 px-4 rounded">Add Entry</button>
       </Link>
-
-      <div className="grid grid-cols-5 gap-4 mt-4">
+      <div className="grid grid-cols-6 gap-4 mt-6">
         {entries.map((entry) => (
-          <Link to={`/entry/${entry.id}`} key={entry.id} className="bg-gray-100 p-4 rounded shadow-md cursor-pointer">
-            <img src={entry.imageUrl} alt={entry.title} className="w-full h-60 object-cover rounded" />
-            <h2 className="text-lg font-semibold mt-2">{entry.title}</h2>
-            <p>{entry.date}</p>
-          </Link>
+          <div key={entry.id} className="relative border rounded overflow-hidden shadow-lg">
+            <button onClick={() => handleDelete(entry.id)}
+              className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 text-3xl flex items-center justify-center hover:bg-red-700"
+            >&times;</button>
+            <Link to={`/entry/${entry.id}`}>
+              <img src={entry.imageUrl} alt={entry.title} className="w-45 h-60 py-2 px-4"/>
+              <div className="p-2">
+                <h2 className="text-lg font-semibold p-2">{entry.title}</h2>
+                <p className="text-gray-500 text-sm p-2">{entry.date}</p>
+              </div>
+            </Link>
+          </div>
         ))}
       </div>
     </div>
   );
 };
-
 export default HomePage;

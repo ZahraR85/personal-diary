@@ -14,16 +14,17 @@ const EntryDetailsModal = () => {
   return (
     <>
       
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold">{entry.title}</h1>
-        <p className="text-gray-500 mb-4">{entry.date}</p>
-        <img src={entry.imageUrl} alt={entry.title} className="w-auto h-64 object-contain mx-auto rounded mb-4" />
-        <p>{entry.content}</p>
+      <div className="container mx-auto p-20">
+        <h1 className="text-2xl font-bold p-2">{entry.title}</h1>
+        <p className="text-gray-500 p-2 mb-4">{entry.date}</p>
+        <div className="flex justify-start">
+        <img src={entry.imageUrl} alt={entry.title} className="flex-1 w-auto h-64 object-contain mx-auto rounded mb-4" />
+        <p className="p-2 flex-1">{entry.content}</p>
+        </div>
         <button
-          className="bg-blue-500 text-white p-2 rounded mt-4"
+          className="bg-pink-400 text-white py-2 px-6 rounded mt-10"
           onClick={() => navigate('/')} // Close the modal and go back to the homepage
-        >
-          Close
+        >Close
         </button>
       </div>
     </>

@@ -55,7 +55,7 @@ const AddEntryModal = () => {
           onChange={(e) => setContent(e.target.value)}
           className="block w-full p-2 border border-gray-300 rounded mb-4"
         ></textarea>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+        <button type="submit" className="bg-pink-400 text-white py-2 px-4 rounded">
           Submit
         </button>
       </form>
