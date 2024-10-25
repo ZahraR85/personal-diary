@@ -26,8 +26,8 @@ const EntryDetailsModal = () => {
     setIsEditing(false);
   };
   return (
-    <div className="flex justify-center items-start pt-20 min-h-screen bg-gray-100">
-      <div className="container max-w-5xl w-4/5 p-8 bg-white shadow-lg rounded-lg">
+    <div className="flex justify-center items-start pt-20 min-h-screen bg-customBg">
+      <div className="container max-w-5xl w-4/5 p-8 bg-customBg1 shadow-lg rounded-lg">
         {isEditing ? (
           <>
             <h1 className="text-2xl font-bold mb-4 text-center">Edit Entry</h1>

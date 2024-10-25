@@ -26,8 +26,8 @@ const AddEntryModal = () => {
     navigate('/');
   };
   return (
-    <div className="flex justify-center items-start pt-20 min-h-screen bg-gray-100">
-      <div className="max-w-5xl w-4/5 p-8 bg-white shadow-lg rounded-lg">
+    <div className="flex justify-center items-start pt-20 min-h-screen bg-customBg">
+      <div className="max-w-5xl w-4/5 p-8 bg-customBg1 shadow-lg rounded-lg">
         <h1 className="text-2xl font-bold mb-4 text-center">Add New Entry</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
