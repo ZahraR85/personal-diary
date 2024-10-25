@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Hero from './Hero'; 
 const HomePage = () => {
   const [entries, setEntries] = useState([]);
   useEffect(() => {
@@ -20,6 +21,9 @@ const HomePage = () => {
     }
   };
   return (
+    <div>
+     <Hero />
+
     <div className="container mx-auto p-4">
       <Link to="/add-entry">
         <button className="bg-pink-400 text-white py-2 px-4 rounded">Add Entry</button>
@@ -41,6 +45,7 @@ const HomePage = () => {
         ))}
       </div>
     </div>
+  </div>
   );
 };
 export default HomePage;
