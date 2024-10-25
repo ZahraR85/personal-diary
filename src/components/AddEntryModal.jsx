@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AddEntryModal = () => {
@@ -26,39 +26,42 @@ const AddEntryModal = () => {
     navigate('/');
   };
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold">Add New Entry</h1>
-      <form onSubmit={handleSubmit} className="mt-4">
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="block w-full p-2 border border-gray-300 rounded mb-4"
-        />
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="block w-full p-2 border border-gray-300 rounded mb-4"
-        />
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-          className="block w-full p-2 border border-gray-300 rounded mb-4"
-        />
-        <textarea
-          placeholder="Content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="block w-full p-2 border border-gray-300 rounded mb-4"
-        ></textarea>
-        <button type="submit" className="bg-pink-400 text-white py-2 px-4 rounded">
-          Submit
-        </button>
-      </form>
+    <div className="flex justify-center items-start pt-20 min-h-screen bg-gray-100">
+      <div className="container max-w-md mx-auto p-4 bg-white shadow-md rounded-lg">
+        <h1 className="text-2xl font-bold mb-4 text-center">Add New Entry</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="block w-full p-2 border border-gray-300 rounded"
+          />
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="block w-full p-2 border border-gray-300 rounded"
+          />
+          <input
+            type="text"
+            placeholder="Image URL"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            className="block w-full p-2 border border-gray-300 rounded"
+          />
+          <textarea
+            placeholder="Content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            rows="5"
+            className="block w-full p-2 border border-gray-300 rounded"
+          ></textarea>
+          <button type="submit" className="bg-pink-400 text-white py-2 px-4 rounded w-full">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
