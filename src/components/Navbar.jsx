@@ -8,10 +8,10 @@ const Navbar = () => {
           My-Personal-Diary
         </Link>
         <div className="flex space-x-4">
-          <Link to="/" className="text-gray-300 hover:text-white">
+          <Link to="/" className="text-white hover:text-gray-700">
             Home
           </Link>
-          <Link to="/add-entry" className="text-gray-300 hover:text-white">
+          <Link to="/add-entry" className="text-white hover:text-gray-700">
             Add New Diary
           </Link>
         </div>

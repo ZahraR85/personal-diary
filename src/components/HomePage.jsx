@@ -24,14 +24,14 @@ const HomePage = () => {
       <Link to="/add-entry">
         <button className="bg-pink-400 text-white py-2 px-4 rounded">Add Entry</button>
       </Link>
-      <div className="grid grid-cols-6 gap-4 mt-6">
+      <div className="grid grid-cols-5 gap-5 mt-6">
         {entries.map((entry) => (
-          <div key={entry.id} className="relative border rounded overflow-hidden shadow-lg">
+          <div key={entry.id} className="relative border w-64 h-90 rounded overflow-hidden shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105">
             <button onClick={() => handleDelete(entry.id)}
-              className="absolute top-1 right-1"
+              className="absolute bottom-1 right-1"
             ><i className="fa-solid fa-trash text-2xl"></i></button>
             <Link to={`/entry/${entry.id}`}>
-              <img src={entry.imageUrl} alt={entry.title} className="w-45 h-60 py-2 px-4"/>
+              <img src={entry.imageUrl} alt={entry.title} className="w-full h-60 p-4"/>
               <div className="p-2">
                 <h2 className="text-lg font-semibold p-2">{entry.title}</h2>
                 <p className="text-gray-500 text-sm p-2">{entry.date}</p>

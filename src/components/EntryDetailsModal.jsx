@@ -27,7 +27,7 @@ const EntryDetailsModal = () => {
   };
   return (
     <div className="flex justify-center items-start pt-20 min-h-screen bg-gray-100">
-      <div className="container max-w-md mx-auto p-4 bg-white shadow-md rounded-lg">
+      <div className="container max-w-5xl w-4/5 p-8 bg-white shadow-lg rounded-lg">
         {isEditing ? (
           <>
             <h1 className="text-2xl font-bold mb-4 text-center">Edit Entry</h1>
@@ -39,24 +39,28 @@ const EntryDetailsModal = () => {
               <input type="text" placeholder="Image URL" value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)} className="block w-full p-2 border border-gray-300 rounded"/>
               <textarea placeholder="Content"value={content} onChange={(e) => setContent(e.target.value)}
-                rows="5" className="block w-full p-2 border border-gray-300 rounded"></textarea>
-              <button type="submit" className="bg-pink-400 text-white py-2 px-4 rounded w-full">Update</button>
+                rows="8" className="block w-full p-2 border border-gray-300 rounded"></textarea>
+              <button type="submit" className="bg-pink-400 text-white py-2 text-lg rounded w-full">Update</button>
             </form>
           </>
         ) : (
-          <>
-            <h1 className="text-2xl font-bold p-2">{entry.title}</h1>
-            <p className="text-gray-500 p-2 mb-4">{entry.date}</p>
-            <div className="flex justify-start">
-              <img src={entry.imageUrl}alt={entry.title}
-                className="w-auto h-64 object-contain mx-auto rounded mb-4"/>
-              <p className="p-2 flex-1">{entry.content}</p>
-            </div>
-            <button className="bg-pink-400 text-white py-2 px-6 rounded mt-10 mr-4"
+          <div className="flex flex-row space-x-8">
+          <div className="flex-none w-1/3">
+            <img src={entry.imageUrl} alt={entry.title} className="w-full h-auto object-cover rounded-lg"/>
+          </div>
+          <div className="flex-1">
+            <h1 className="text-3xl font-bold mb-4">{entry.title}</h1>
+            <p className="text-gray-500 text-lg mb-4">{entry.date}</p>
+            <p className="mb-8">{entry.content}</p>
+            <div className="flex space-x-4">
+            <button className="bg-pink-400 text-white py-2 px-12 text-lg rounded mt-10 mr-4"
               onClick={() => navigate('/')}>Close</button>
-            <button className="bg-pink-400 text-white py-2 px-6 rounded mt-10"
+            <button className="bg-pink-400 text-white py-2 px-12 text-lg rounded mt-10"
               onClick={() => setIsEditing(true)}>Edit</button>
-          </>
+            </div>
+          </div>
+        </div>
+
         )}
       </div>
     </div>
