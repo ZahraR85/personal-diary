@@ -28,8 +28,8 @@ const HomePage = () => {
         {entries.map((entry) => (
           <div key={entry.id} className="relative border rounded overflow-hidden shadow-lg">
             <button onClick={() => handleDelete(entry.id)}
-              className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 text-3xl flex items-center justify-center hover:bg-red-700"
-            >&times;</button>
+              className="absolute top-1 right-1"
+            ><i className="fa-solid fa-trash text-2xl"></i></button>
             <Link to={`/entry/${entry.id}`}>
               <img src={entry.imageUrl} alt={entry.title} className="w-45 h-60 py-2 px-4"/>
               <div className="p-2">
