@@ -27,7 +27,7 @@ const AddEntryModal = () => {
   };
   return (
     <div className="flex justify-center items-start pt-20 min-h-screen bg-gray-100">
-      <div className="container max-w-md mx-auto p-4 bg-white shadow-md rounded-lg">
+      <div className="max-w-5xl w-4/5 p-8 bg-white shadow-lg rounded-lg">
         <h1 className="text-2xl font-bold mb-4 text-center">Add New Entry</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -54,10 +54,10 @@ const AddEntryModal = () => {
             placeholder="Content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            rows="5"
+            rows="8"
             className="block w-full p-2 border border-gray-300 rounded"
           ></textarea>
-          <button type="submit" className="bg-pink-400 text-white py-2 px-4 rounded w-full">
+          <button type="submit" className="bg-pink-400 text-white py-2 text-lg rounded w-full">
             Submit
           </button>
         </form>
