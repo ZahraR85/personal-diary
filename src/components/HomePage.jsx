@@ -21,15 +21,15 @@ const HomePage = () => {
     }
   };
   return (
-    <div>
+    <div className="bg-customBg">
     <Hero />
     <div className="container mx-auto p-4">
       <Link to="/add-entry">
-        <button className="bg-green-800 text-white py-2 px-4 rounded">Add Entry</button>
+        <button className="bg-green-800 text-white py-2 px-4 rounded">Add New Diary</button>
       </Link>
-      <div className="grid grid-cols-5 gap-5 mt-6">
+      <div className="grid grid-cols-5 gap-5 mt-6 ">
         {entries.map((entry) => (
-          <div key={entry.id} className="relative border w-64 h-90 rounded overflow-hidden shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105">
+          <div key={entry.id} className=" bg-customBg1 relative border w-64 h-90 rounded overflow-hidden shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105">
             <button onClick={() => handleDelete(entry.id)}
               className="absolute bottom-1 right-1"
             ><i className="fa-solid fa-trash text-2xl"></i></button>
