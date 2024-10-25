@@ -22,11 +22,10 @@ const HomePage = () => {
   };
   return (
     <div>
-     <Hero />
-
+    <Hero />
     <div className="container mx-auto p-4">
       <Link to="/add-entry">
-        <button className="bg-pink-400 text-white py-2 px-4 rounded">Add Entry</button>
+        <button className="bg-green-800 text-white py-2 px-4 rounded">Add Entry</button>
       </Link>
       <div className="grid grid-cols-5 gap-5 mt-6">
         {entries.map((entry) => (
